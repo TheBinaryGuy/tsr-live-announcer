@@ -19,7 +19,7 @@ import { Route as IndexImport } from './routes/index'
 const AboutRoute = AboutImport.update({
   path: '/about',
   getParentRoute: () => rootRoute,
-} as any)
+} as any).lazy(() => import('./routes/about.lazy').then((d) => d.Route))
 
 const IndexRoute = IndexImport.update({
   path: '/',
